@@ -12,3 +12,7 @@ CONFIG = create_config(
     HOST=env['HOST'],
     PORT=env['PORT']
 )
+
+if __name__ == '__main__':
+    handler = RotatingFileHandler('mapper.log', maxBytes=1000, backupCount=1)
+    app.run(debug=True, port=CONFIG.PORT, host=CONFIG.HOST)
