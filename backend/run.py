@@ -10,7 +10,7 @@ load_dotenv(path.join(path.dirname(__file__), '.env'))
 create_config = namedtuple('create_config', ['HOST', 'PORT'])
 CONFIG = create_config(
     HOST=env['HOST'],
-    PORT=env['PORT']
+    PORT=int(env['PORT'])
 )
 
 if __name__ == '__main__':
