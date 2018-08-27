@@ -11,6 +11,7 @@ sqlalchemy = "*"
 graphene-sqlalchemy = "*"
 flask = "*"
 flask-graphql = "*"
+flask-swagger = "*"
 
 
 [dev-packages]
