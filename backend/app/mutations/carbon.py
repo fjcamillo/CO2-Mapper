@@ -1,6 +1,7 @@
 import graphene
 from graphene import relay
-from ..data import create_carbon
+from ..data import carbon as carbonData
+
 
 class InputCarbon(relay.ClientIDMutation):
 
@@ -11,5 +12,18 @@ class InputCarbon(relay.ClientIDMutation):
         device_identification = graphene.String(required=True)
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, ):
-        pass
+    def mutate_and_get_payload(
+            cls, 
+            root, 
+            info, 
+            longitude, 
+            latitude, 
+            reading, 
+            device_identification):
+        carbon = carbonData.create_carbon(
+            longitude,
+            latitude,
+            reading,
+            device_identification
+        )
+        return InputCarbon(carbon=carbon)
