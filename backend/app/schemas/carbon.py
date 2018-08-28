@@ -2,6 +2,7 @@ import graphene
 from graphene import relay
 from graphene_sqlalchemy import SQLAlchemyObjectType, SQLAlchemyConnectionField
 from ..models import carbon as CarbonModel
+from ..mutations import carbon as CarbonMutation
 
 class Carbon(SQLAlchemyObjectType):
     class Meta:
@@ -16,4 +17,4 @@ class Query(graphene.ObjectType):
     node = relay.Node.Field()
     all_carbon = SQLAlchemyConnectionField(CarbonConnection)
 
-schema = graphene.Schema(query = Query)
+schema = graphene.Schema(query = Query, mutation=CarbonMutation)
