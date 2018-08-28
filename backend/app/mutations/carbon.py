@@ -27,3 +27,6 @@ class InputCarbon(relay.ClientIDMutation):
             device_identification
         )
         return InputCarbon(carbon=carbon)
+
+class Mutation(graphene.ObjectType):
+    input_carbon = InputCarbon.Field()

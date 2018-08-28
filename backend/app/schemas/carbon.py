@@ -17,4 +17,4 @@ class Query(graphene.ObjectType):
     node = relay.Node.Field()
     all_carbon = SQLAlchemyConnectionField(CarbonConnection)
 
-schema = graphene.Schema(query = Query, mutation=CarbonMutation)
+schema = graphene.Schema(query = Query, mutation=CarbonMutation.Mutation)
